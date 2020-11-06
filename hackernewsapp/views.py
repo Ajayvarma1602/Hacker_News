@@ -132,7 +132,7 @@ def CommentListView(request,id):
         'post': post,
         'comments': list(reversed(comments)),
     }
-    return render(request,'post.html', context)
+    return render(request,'commentpost.html', context)
 
 
 def CommentReplyView(request,id1,id2):
