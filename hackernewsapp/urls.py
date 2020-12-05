@@ -1,6 +1,8 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from .views import *
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('',PostListView, name='home'),
@@ -16,5 +18,7 @@ urlpatterns = [
     path('vote/<int:id>',UpVoteView,name='vote'),
     path('downvote/<int:id>',DownVoteView,name='dvote'),
     path('post/<int:id1>/comment/<int:id2>',CommentReplyView,name='reply'),
-    path('edit/<int:id>',EditListView, name='edit')
+    path('edit/<int:id>',EditListView, name='edit'),
+    path('',TemplateView.as_view(template_name="social_app/index.html")),
 ]
+
